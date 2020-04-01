@@ -1,0 +1,105 @@
+*{margin: 0;padding: 0;border:none;box-sizing: border-box;}
+img{max-width: 100%;}
+:root {
+    --c-primary: #73020C;
+    --c-primaryS: #D91438;
+    --c-secondary: #BF846F;
+    --c-secondaryS: #F2CEAE;
+    --c-alternative: #5B9EA6;
+    --c-black: #111;
+    --c-white: #fff;
+    --c-blackTransp: rgba(0,0,0,.44);
+}
+html {
+    font-size: 16px;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--c-secondaryS);
+    color: var(--c-black);
+    font-family: monospace;
+}
+.container-boxes {
+    display: flex;
+    justify-content: center;
+}
+.box {
+    width: 15vw;
+    height: 60vh;
+    border: 2px solid var(--c-secondary);
+    border-radius: 5px;
+    margin: 5px;
+    overflow: hidden;
+    color: var(--c-white);
+    position: relative;
+    transition: .5s ease-in-out;
+    box-shadow: 5px 10px 8px var(--c-blackTransp);
+}
+.box:hover {
+    width: 30vw;
+    transition: .3s ease-in-out;
+}
+.box:nth-child(1){
+    background: url(img/man-holding-white-teacup-in-front-of-gray-laptop-842567.jpg) no-repeat  center top;
+    background-size: cover;
+}
+.box:nth-child(2){
+    background: url(img/man-wearing-white-dress-shirt-and-black-blazer-2182970.jpg) no-repeat center top;
+    background-size: cover;
+}
+.box:nth-child(3){
+    background: url(img/photo-of-woman-using-her-laptop-935756.jpg) no-repeat center top;
+    background-size: cover;
+}
+.box:nth-child(4){
+    background: url(img/woman-wearing-orange-blazer-showing-thumbs-up-3201694.jpg) no-repeat right top;
+    background-size: cover;
+}
+.box::before {
+    content: "";
+    width: 50%;
+    height: 100%;
+    background-color: var(--c-blackTransp);
+    position: absolute;
+    bottom:0;
+    right:0;
+    transition: .5s ease-in-out;
+}
+.box:hover::before {
+    width: 100%;
+    height: 45%;
+    transition: .3s ease-in-out;
+}
+.box h2,
+.box p {
+    position: absolute;
+    z-index: 50;
+}
+.box h2 {
+    transform: rotate(-90deg);
+    transform-origin: top left;
+    left: 54%;
+    bottom: 0px;
+    white-space: nowrap;
+    transition: .5s ease-in-out;
+}
+.box:hover h2 {
+    transform: rotate(0deg);
+    left: 5%;
+    bottom: 37%;
+    transition: .3s ease-in-out;
+}
+.box p {
+    opacity: 0;
+    left: 5%;
+    top: 110%;
+    transition: .3s ease-in-out;
+}
+.box:hover p {
+    opacity: 1;
+    top: 70%;
+    transition: .3s ease-in-out;
+} 

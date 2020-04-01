@@ -1,0 +1,125 @@
+*{margin: 0;padding: 0;border:none;box-sizing: border-box;}
+img{max-width: 100%;}
+:root {
+    --c-primary: #73020C;
+    --c-primaryS: #D91438;
+    --c-secondary: #BF846F;
+    --c-secondaryS: #F2CEAE;
+    --c-alternative: #5B9EA6;
+    --c-black: #111;
+    --c-white: #fff;
+    --c-blackTransp: rgba(0,0,0,.44);
+}
+html {
+    font-size: 16px;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--c-secondaryS);
+    color: var(--c-black);
+    font-family: monospace;
+}
+.container-boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box {
+    width: 20vw;
+    height: 50vh;
+    background-color: var(--c-primary);
+    border-radius: 5px;
+    margin: 15px;
+    color: var(--c-white);
+    position: relative;
+    transition: .8s ease-in-out;
+}
+.box > div {
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    position: relative;
+    overflow: hidden;
+}
+.box::before {
+    content: "";
+    width: 95%;
+    margin: 0 auto;
+    height: 40px;
+    background-color: black;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(5px);
+    opacity: .8;
+    transition: .9s ease-in-out;
+}
+.contenedor-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    transform: scale(0);
+    transform-origin: center;
+}
+.contenedor-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.box p {
+    position: absolute;
+    top: 110%;
+}
+.box h2 {
+    position: absolute;
+    top: calc(50% - 15px);
+    left: 5%;
+    white-space: nowrap;
+}
+
+.box:hover {
+    width: 20.5vw;
+    height: 57vh;
+    transition: .6s ease-in-out;
+}
+.box:hover::before {
+    bottom: -10px;
+    filter: blur(10px);
+    opacity: .7;
+    transition: .6s ease-in-out;
+}
+.box:hover p {
+    animation: parrafo .4s ease-in-out .5s 1 forwards;
+}
+@keyframes parrafo {
+    from { top: 110%;}
+    to{ top: 60%;}
+}
+.box:hover .contenedor-img {
+    animation: imagen .4s ease-in-out .9s 1 forwards;
+}
+@keyframes imagen {
+    from {transform: scale(0);}
+    to {transform: scale(1);}
+}
+.box:hover h2 {
+    animation: titulo 1.6s ease-in-out 1 forwards;
+}
+@keyframes titulo {
+    0% { top: 7%; left: 110%;}
+    80% { top: 7%; left: 110%;}
+    100% { top: 7%; left: 5%;}
+}
+
